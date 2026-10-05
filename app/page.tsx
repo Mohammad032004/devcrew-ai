@@ -5,18 +5,23 @@ import {
   ArrowRight,
   Bot,
   Code2,
+  Layers3,
+  Lightbulb,
   Menu,
+  Rocket,
+  SearchCheck,
   ShieldCheck,
   Sparkles,
+  Terminal,
   TestTube2,
 } from "lucide-react";
 
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#050507] text-white">
-      {/* Background */}
+      {/* ================= BACKGROUND ================= */}
       <div className="pointer-events-none fixed inset-0 -z-10">
-        <div className="absolute left-1/2 top-[-300px] h-[600px] w-[600px] -translate-x-1/2 -translate-y-0 rounded-full bg-violet-600/20 blur-[140px]" />
+        <div className="absolute left-1/2 top-[-300px] h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-violet-600/20 blur-[140px]" />
 
         <div className="absolute right-[-200px] top-[300px] h-[500px] w-[500px] rounded-full bg-cyan-500/10 blur-[140px]" />
 
@@ -30,7 +35,7 @@ export default function Home() {
         />
       </div>
 
-      {/* Navbar */}
+      {/* ================= NAVBAR ================= */}
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
         {/* Logo */}
         <div className="flex items-center gap-3">
@@ -39,26 +44,36 @@ export default function Home() {
           </div>
 
           <span className="text-lg font-semibold tracking-tight">
-            DevCrew<span className="text-violet-400"> AI</span>
+            DevCrew
+            <span className="text-violet-400"> AI</span>
           </span>
         </div>
 
-        {/* Links */}
+        {/* Desktop Navigation */}
         <div className="hidden items-center gap-8 text-sm text-zinc-400 md:flex">
-          <a href="#features" className="transition hover:text-white">
+          <a
+            href="#features"
+            className="transition-colors hover:text-white"
+          >
             Features
           </a>
 
-          <a href="#agents" className="transition hover:text-white">
+          <a
+            href="#agents"
+            className="transition-colors hover:text-white"
+          >
             Agents
           </a>
 
-          <a href="#workflow" className="transition hover:text-white">
+          <a
+            href="#workflow"
+            className="transition-colors hover:text-white"
+          >
             How it works
           </a>
         </div>
 
-        {/* Actions */}
+        {/* Desktop Actions */}
         <div className="hidden items-center gap-3 md:flex">
           <button className="rounded-lg px-4 py-2 text-sm text-zinc-300 transition hover:text-white">
             Sign in
@@ -70,13 +85,13 @@ export default function Home() {
           </button>
         </div>
 
-        {/* Mobile */}
+        {/* Mobile Menu */}
         <button className="rounded-lg border border-white/10 p-2 md:hidden">
           <Menu size={20} />
         </button>
       </nav>
 
-      {/* Hero */}
+      {/* ================= HERO ================= */}
       <section className="mx-auto flex max-w-7xl flex-col items-center px-6 pb-24 pt-20 text-center lg:px-8 lg:pt-28">
         {/* Badge */}
         <motion.div
@@ -115,7 +130,7 @@ export default function Home() {
           agents plan, code, review, test, and improve your projects together.
         </motion.p>
 
-        {/* Buttons */}
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -136,7 +151,7 @@ export default function Home() {
           </button>
         </motion.div>
 
-        {/* Agent Preview */}
+        {/* ================= AGENT PREVIEW ================= */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -200,11 +215,100 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
+
+      {/* ================= HOW IT WORKS ================= */}
+      <section
+        id="workflow"
+        className="mx-auto w-full max-w-7xl px-6 py-28 lg:px-8"
+      >
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto max-w-2xl text-center"
+        >
+          {/* Label */}
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs font-medium text-zinc-400">
+            <Layers3 size={14} />
+            HOW IT WORKS
+          </div>
+
+          {/* Heading */}
+          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+            From idea to{" "}
+            <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
+              working software.
+            </span>
+          </h2>
+
+          {/* Description */}
+          <p className="mt-5 text-sm leading-7 text-zinc-500 sm:text-base">
+            DevCrew AI brings specialized agents together to take your project
+            from a simple idea to tested, production-ready software.
+          </p>
+        </motion.div>
+
+        {/* Workflow */}
+        <div className="relative mt-20">
+          {/* Connecting Line */}
+          <div className="absolute left-[8%] right-[8%] top-16 hidden h-px bg-gradient-to-r from-violet-500/0 via-violet-500/40 to-cyan-500/0 lg:block" />
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
+            <WorkflowCard
+              number="01"
+              icon={<Lightbulb size={22} />}
+              title="Describe"
+              description="Tell DevCrew what you want to build using natural language."
+              color="text-yellow-400"
+              delay={0}
+            />
+
+            <WorkflowCard
+              number="02"
+              icon={<Layers3 size={22} />}
+              title="Plan"
+              description="The Planner Agent breaks your idea into clear development tasks."
+              color="text-violet-400"
+              delay={0.1}
+            />
+
+            <WorkflowCard
+              number="03"
+              icon={<Terminal size={22} />}
+              title="Build"
+              description="Coding agents create components, APIs, logic, and project files."
+              color="text-cyan-400"
+              delay={0.2}
+            />
+
+            <WorkflowCard
+              number="04"
+              icon={<SearchCheck size={22} />}
+              title="Review"
+              description="Review agents inspect your code for quality, bugs, and security."
+              color="text-emerald-400"
+              delay={0.3}
+            />
+
+            <WorkflowCard
+              number="05"
+              icon={<Rocket size={22} />}
+              title="Ship"
+              description="Test everything, fix issues, and prepare your project for deployment."
+              color="text-orange-400"
+              delay={0.4}
+            />
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
 
-/* Agent Card */
+/* ================= AGENT COMPONENT ================= */
+
 function Agent({
   icon,
   name,
@@ -218,15 +322,24 @@ function Agent({
 }) {
   return (
     <div className="bg-[#0b0b10] p-6">
-      <div className={`mb-4 ${color}`}>{icon}</div>
+      <div className={`mb-4 ${color}`}>
+        {icon}
+      </div>
 
-      <h3 className="text-sm font-medium text-white">{name}</h3>
+      <h3 className="text-sm font-medium text-white">
+        {name}
+      </h3>
 
-      <p className="mt-2 text-xs leading-5 text-zinc-500">{text}</p>
+      <p className="mt-2 text-xs leading-5 text-zinc-500">
+        {text}
+      </p>
 
+      {/* Animated Progress */}
       <div className="mt-5 h-1 overflow-hidden rounded-full bg-white/5">
         <motion.div
-          animate={{ x: ["-100%", "200%"] }}
+          animate={{
+            x: ["-100%", "200%"],
+          }}
           transition={{
             repeat: Infinity,
             duration: 2,
@@ -236,5 +349,75 @@ function Agent({
         />
       </div>
     </div>
+  );
+}
+
+/* ================= WORKFLOW CARD ================= */
+
+function WorkflowCard({
+  number,
+  icon,
+  title,
+  description,
+  color,
+  delay,
+}: {
+  number: string;
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  color: string;
+  delay: number;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.6,
+        delay,
+      }}
+      className="group relative"
+    >
+      <div className="relative h-full rounded-2xl border border-white/10 bg-white/[0.025] p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.045]">
+        {/* Number + Icon */}
+        <div className="mb-6 flex items-center justify-between">
+          <span className="font-mono text-xs text-zinc-600">
+            {number}
+          </span>
+
+          <div
+            className={`flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] ${color}`}
+          >
+            {icon}
+          </div>
+        </div>
+
+        {/* Title */}
+        <h3 className="text-lg font-semibold text-white">
+          {title}
+        </h3>
+
+        {/* Description */}
+        <p className="mt-3 text-sm leading-6 text-zinc-500">
+          {description}
+        </p>
+
+        {/* Animated Bottom Line */}
+        <div className="mt-7 h-px w-full overflow-hidden bg-white/5">
+          <motion.div
+            initial={{ width: "0%" }}
+            whileInView={{ width: "100%" }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 1,
+              delay: delay + 0.3,
+            }}
+            className={`h-full bg-current ${color}`}
+          />
+        </div>
+      </div>
+    </motion.div>
   );
 }
